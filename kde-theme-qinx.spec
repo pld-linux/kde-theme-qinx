@@ -13,7 +13,7 @@ Source0:	http://www.usermode.org/code/%{_name}-%{version}.tar.gz
 Patch0:		%{_name}-unsermake.patch
 URL:		http://www.kde-look.org/content/show.php?content=2306
 BuildRequires:	autoconf
-BuildRequires:	unsermake
+BuildRequires:	automake
 BuildRequires:	freetype-devel
 BuildRequires:	kdelibs-devel
 BuildRequires:	unsermake
@@ -21,10 +21,14 @@ Requires:	kdelibs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-BLAH.
+Qinx is a clone of the Photon theme known from the QNX operating
+system. It gives the user a clean and useful look with and concave
+looking widgets.
 
 %description -l pl
-ZIEW.
+Qinx to kopia motywu Photon znanego z systemu operacyjnego QNX.
+Oferuje on u¿ytkownikowi przejrzysty i funkcjonalny wygl±d oraz
+poczucie wklês³o¶ci elementów interfejsu graficznego.
 
 %package -n kde-style-%{_name}
 Summary:	KDE style - %{_name}
@@ -33,14 +37,14 @@ Group:		Themes
 Requires:	kdelibs
 
 %description -n kde-style-%{_name}
-Qinx is a clone of the Photon style know from the QNX
-operating system. It gives the user a clean and useful look with and
-concave looking widgets.
+Qinx is a clone of the Photon style known from the QNX operating
+system. It gives the user a clean and useful look with and concave
+looking widgets.
 
 %description -n kde-style-%{_name} -l pl
-Qinx to kopia stylu Photon znanego z systemu operacyjnego
-QNX. Oferuje on u¿ytkownikowi przejrzysty i funkcjonalny wygl±d oraz
-poczucie wklês³o¶ci elementów interfejsu graficznego.
+Qinx to kopia stylu Photon znanego z systemu operacyjnego QNX. Oferuje
+on u¿ytkownikowi przejrzysty i funkcjonalny wygl±d oraz poczucie
+wklês³o¶ci elementów interfejsu graficznego.
 
 %package -n kde-colorscheme-%{_name}
 Summary:	Color scheme for KDE style - %{_name}
@@ -74,9 +78,7 @@ the whole decoration clear and visible.
 Ten pakiet zawiera dekoracje kwin podobn± do tej u¿ywanej w Photonie,
 stylu znanym z systemu operacyjnego QNX. Sk³ada siê z wypuk³ej czê¶ci
 zawieraj±cej tytu³ okna oraz wklês³ej, w której znajduj± siê
-przyciski, co sprawia, ¿e ca³a dekoracja jest wyra¿na i widoczna.
-
-
+przyciski, co sprawia, ¿e ca³a dekoracja jest wyra¼na i widoczna.
 
 %prep
 %setup -q -n %{_name}-%{version}
@@ -85,7 +87,7 @@ przyciski, co sprawia, ¿e ca³a dekoracja jest wyra¿na i widoczna.
 %build
 kde_htmldir="%{_kdedocdir}"; export kde_htmldir
 kde_icondir="%{_iconsdir}"; export kde_icondir
-cp -f %{_datadir}/automake/config.sub admin
+cp -f /usr/share/automake/config.sub admin
 export UNSERMAKE=%{_datadir}/unsermake/unsermake
 %{__make} -f Makefile.cvs
 
@@ -95,8 +97,6 @@ export UNSERMAKE=%{_datadir}/unsermake/unsermake
 
 %install
 rm -rf $RPM_BUILD_ROOT
-# create dirs if necessary
-#install -d $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
