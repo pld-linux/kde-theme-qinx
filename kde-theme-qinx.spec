@@ -13,11 +13,10 @@ Source0:	http://www.usermode.org/code/%{_name}-%{version}.tar.gz
 Patch0:		%{_name}-unsermake.patch
 URL:		http://www.kde-look.org/content/show.php?content=2306
 BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	freetype-devel
-BuildRequires:	kdelibs-devel
 BuildRequires:	unsermake
-Requires:	kdelibs
+BuildRequires:	automake
+BuildRequires:	kdelibs-devel >= 9:3.2.0
+BuildRequires:	kdebase-desktop-libs >= 9:3.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -66,7 +65,7 @@ tworz±c wygl±d o mniejszym kontra¶cie.
 Summary:	Kwin decoration - %{_name}
 Summary(pl):	Dekoracja kwin - %{_name}
 Group:		Themes
-Requires:	kdebase-desktop-libs
+Requires:	kdebase-desktop-libs >= 9:3.2.0
 
 %description -n kde-decoration-%{_name}
 Tis package contains a kwin decoration similar to the one used in
@@ -85,13 +84,12 @@ przyciski, co sprawia, ¿e ca³a dekoracja jest wyra¼na i widoczna.
 %patch0 -p1
 
 %build
-kde_htmldir="%{_kdedocdir}"; export kde_htmldir
-kde_icondir="%{_iconsdir}"; export kde_icondir
-cp -f /usr/share/automake/config.sub admin
+cp -f %{_datadir}/automake/config.sub admin
 export UNSERMAKE=%{_datadir}/unsermake/unsermake
 %{__make} -f Makefile.cvs
 
-%configure
+%configure \
+	--with-qt-libraries=%{_libdir}
 
 %{__make}
 
@@ -99,7 +97,8 @@ export UNSERMAKE=%{_datadir}/unsermake/unsermake
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	kde_htmldir="%{_kdedocdir}"
 
 %clean
 rm -rf $RPM_BUILD_ROOT
