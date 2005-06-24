@@ -4,12 +4,12 @@
 Summary:	KDE theme - %{_name}
 Summary(pl):	Motyw KDE - %{_name}
 Name:		kde-theme-%{_name}
-Version:	1.0
+Version:	1.4
 Release:	1
 License:	X11
 Group:		Themes
-Source0:	http://www.usermode.org/code/%{_name}-%{version}.tar.gz
-# Source0-md5:	bd0afdc2ec3d1e533d65ab449f914d2c
+Source0:	http://www.kde-look.org/content/files/2306-%{_name}-%{version}.tar.bz2
+# Source0-md5:	316956de0067e3560e89ac02a7e863b8
 Patch0:		%{_name}-unsermake.patch
 URL:		http://www.kde-look.org/content/show.php?content=2306
 BuildRequires:	autoconf
