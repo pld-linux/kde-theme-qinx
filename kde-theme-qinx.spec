@@ -17,6 +17,9 @@ BuildRequires:	unsermake
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 9:3.2.0
 BuildRequires:	kdebase-desktop-libs >= 9:3.2.0
+Requires:	kde-decoration-%{_name}
+Requires:	kde-style-%{_name}
+Requires:	kde-colorscheme-%{_name}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -102,6 +105,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%files
 
 %files -n kde-decoration-%{_name}
 %defattr(644,root,root,755)
