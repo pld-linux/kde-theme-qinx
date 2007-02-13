@@ -2,7 +2,7 @@
 %define		_name	qinx
 
 Summary:	KDE theme - %{_name}
-Summary(pl.UTF-8):   Motyw KDE - %{_name}
+Summary(pl.UTF-8):	Motyw KDE - %{_name}
 Name:		kde-theme-%{_name}
 Version:	1.4
 Release:	1
@@ -34,7 +34,7 @@ poczucie wklęsłości elementów interfejsu graficznego.
 
 %package -n kde-style-%{_name}
 Summary:	KDE style - %{_name}
-Summary(pl.UTF-8):   Styl do KDE - %{_name}
+Summary(pl.UTF-8):	Styl do KDE - %{_name}
 Group:		Themes
 Requires:	kdelibs
 
@@ -50,7 +50,7 @@ wklęsłości elementów interfejsu graficznego.
 
 %package -n kde-colorscheme-%{_name}
 Summary:	Color scheme for KDE style - %{_name}
-Summary(pl.UTF-8):   Schemat kolorów do stylu KDE - %{_name}
+Summary(pl.UTF-8):	Schemat kolorów do stylu KDE - %{_name}
 Group:		Themes
 Requires:	kdebase-core
 
@@ -66,7 +66,7 @@ tworząc wygląd o mniejszym kontraście.
 
 %package -n kde-decoration-%{_name}
 Summary:	Kwin decoration - %{_name}
-Summary(pl.UTF-8):   Dekoracja kwin - %{_name}
+Summary(pl.UTF-8):	Dekoracja kwin - %{_name}
 Group:		Themes
 Requires:	kdebase-desktop-libs >= 9:3.2.0
 
