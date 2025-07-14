@@ -84,7 +84,7 @@ przyciski, co sprawia, że cała dekoracja jest wyraźna i widoczna.
 
 %prep
 %setup -q -n %{_name}-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 cp -f %{_datadir}/automake/config.sub admin
